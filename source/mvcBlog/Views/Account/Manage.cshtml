@@ -1,0 +1,47 @@
+﻿@model mvcBlog.Models.UserProfile
+
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p class="message-success">@ViewBag.StatusMessage</p>
+@using (Html.BeginForm("UpdateAccount", "Account"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Change Password Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.FirstName, "First name")
+                @Html.TextBoxFor(m => m.FirstName, new { @placeholder = "John"})
+            </li>
+            <li>
+                @Html.LabelFor(m => m.LastName, "Last name")
+                @Html.TextBoxFor(m => m.LastName, new { @placeholder = "Doe"})
+            </li>
+            <li>
+                @Html.LabelFor(m => m.EMail, "E-mail address")
+                @Html.TextBoxFor(m => m.EMail, new { @placeholder = "John@Does.com"})
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Twitter, "Twitter")
+                @Html.TextBoxFor(m => m.Twitter, new { @placeholder = "@Twitter"})
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Facebook, "Facebook")
+                @Html.TextBoxFor(m => m.Facebook, new { @placeholder = "JohnDoe"})
+            </li>
+            <li>
+                @Html.LabelFor(m => m.WebSite, "Link to your blog/website")
+                @Html.TextBoxFor(m => m.WebSite, new { @placeholder = "www.maungs.com"})
+            </li>
+        </ol>
+        <input type="submit" value="Update" />
+    </fieldset>
+}
+
+    @Html.Partial("_ChangePasswordPartial")
+<h2>Manage</h2>

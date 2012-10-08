@@ -1,0 +1,31 @@
+﻿@model mvcBlog.Models.UserProfile
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Control Panel</h2>
+<ul>
+    @if (Roles.IsUserInRole("Administrator") || Roles.IsUserInRole("Blogger"))
+    { 
+    <li>@Html.ActionLink("Blogs", "Index", "Blog")</li>
+    }
+    @if (Roles.IsUserInRole("Administrator") || Roles.IsUserInRole("Blogger"))
+    { 
+    <li>@Html.ActionLink("Tags", "Index", "Tag")</li>
+    }
+    @if (Roles.IsUserInRole("Administrator"))
+    { 
+    <li>@Html.ActionLink("Categories", "Index", "Category")</li>
+    }
+    <li>@Html.ActionLink("Comments", "Index", "Comment")</li>
+    @if (Roles.IsUserInRole("Administrator"))
+    { 
+    <li>@Html.ActionLink("Social Accounts", "Index", "SocialBlogStat")</li>
+    }
+    @if (Roles.IsUserInRole("Administrator"))
+    { 
+    <li>@Html.ActionLink("Manage Users", "UserAdministration", "ControlPanel")</li>
+    }
+</ul>

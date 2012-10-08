@@ -1,0 +1,13 @@
+﻿@model IEnumerable<mvcBlog.Models.Blog>
+
+@{
+    List<string> AllCategories = ViewBag.AllCategories;
+    List<string> SelectedCategories = ViewBag.SelectedCategories;
+    var foo = new List<SelectListItem> { 
+        new SelectListItem { Text = "Foo 1", Value = "1", Selected = true },
+        new SelectListItem { Text = "Foo 2", Value = "2" },
+        new SelectListItem { Text = "Foo 3", Value = "3", Selected = true }
+    };
+}
+
+@Html.ListBox("foo", foo)

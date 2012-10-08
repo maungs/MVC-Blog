@@ -1,0 +1,1 @@
+Graphics Related to this project can be found in this directory.

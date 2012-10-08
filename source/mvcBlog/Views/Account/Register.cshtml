@@ -1,0 +1,42 @@
+﻿@model mvcBlog.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Create a new account.</h2>
+</hgroup>
+@using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+
+        @Html.TextBoxFor(m => m.FirstName,  new { @placeholder = "First name"}) @Html.TextBoxFor(m => m.LastName,  new { @placeholder = "Last name"})
+        <br />
+        <br />
+        @Html.TextBoxFor(m => m.UserName,  new { @placeholder = "User name"})
+        <br />
+        <br />
+        @Html.PasswordFor(m => m.Password,  new { @placeholder = "Password"}) @Html.PasswordFor(m => m.ConfirmPassword,  new { @placeholder = "Confirm password"})
+        <br />
+        <br />
+        @Html.TextBoxFor(m => m.EMail,  new { @placeholder = "E-Mail"})
+        <br />
+        <br />
+        @Html.TextBoxFor(m => m.Twitter,  new { @placeholder = "Twitter"})
+        <br />
+        <br />
+        @Html.TextBoxFor(m => m.Facebook,  new { @placeholder = "Facebook"})
+        <br />
+        <br />
+        @Html.TextBoxFor(m => m.WebSite,  new { @placeholder = "http://your.avatar.url"})
+        <br />
+        <br />
+        <input type="submit" value="Register" /><input type="button" name="Cancel" value="Cancel" onclick="window.location = '../'" />
+        <br />
+        <br />
+        
+    }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

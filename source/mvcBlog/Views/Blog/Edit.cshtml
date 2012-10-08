@@ -1,0 +1,168 @@
+﻿@model mvcBlog.Models.Blog
+
+@{
+    ViewBag.Title = "Edit";
+    List<string> AllCategories = ViewBag.AllCategories;
+    List<string> SelectedCategories = ViewBag.SelectedCategories;
+    string BlogTags = ViewBag.BlogTags;
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Blog</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserId)
+            @Html.ValidationMessageFor(model => model.UserId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Article)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Article)
+            @Html.ValidationMessageFor(model => model.Article)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Quote)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Quote)
+            @Html.ValidationMessageFor(model => model.Quote)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ShortDescription)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ShortDescription)
+            @Html.ValidationMessageFor(model => model.ShortDescription)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreatedDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreatedDate)
+            @Html.ValidationMessageFor(model => model.CreatedDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PublishedDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PublishedDate)
+            @Html.ValidationMessageFor(model => model.PublishedDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastUpdated)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastUpdated)
+            @Html.ValidationMessageFor(model => model.LastUpdated)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ArticleImage)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ArticleImage)
+            @Html.ValidationMessageFor(model => model.ArticleImage)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ImageDescription)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ImageDescription)
+            @Html.ValidationMessageFor(model => model.ImageDescription)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HeaderImage)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HeaderImage)
+            @Html.ValidationMessageFor(model => model.HeaderImage)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NoComments)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NoComments)
+            @Html.ValidationMessageFor(model => model.NoComments)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsDraft)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsDraft)
+            @Html.ValidationMessageFor(model => model.IsDraft)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsPublished)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsPublished)
+            @Html.ValidationMessageFor(model => model.IsPublished)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Tags)
+        </div>
+        <div class="editor-field">
+            <textarea id="BlogTags" name="BlogTags">@BlogTags</textarea>
+        </div>
+        <div class="editor-label">
+            @Html.Label("Categories")
+        </div>
+        <div class="editor-field">
+        <select id="Cat" multiple="multiple" name="Cat">
+                     @foreach(var Cat in AllCategories) {
+
+                    if (SelectedCategories.Contains(Cat))
+                    {
+                        <option selected="selected" value="@Cat">@Cat</option>
+                    }
+                    else
+                    {
+                        <option value="@Cat">@Cat</option>
+                    }
+                    }
+         </select>
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,43 @@
+﻿@model mvcBlog.Models.SocialBlogStat
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SocialBlogStat</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SocialSite)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SocialSite)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SharedCount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SharedCount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isActive)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Blog.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Blog.Title)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

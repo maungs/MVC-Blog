@@ -1,0 +1,36 @@
+﻿@model mvcBlog.Models.Comment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Comment</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CommentText)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CommentText)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Blog.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Blog.Title)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

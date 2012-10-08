@@ -1,0 +1,10 @@
+﻿@model mvcBlog.Models.UserProfile
+
+@{
+    ViewBag.Title = "AccountManage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p class="message-success">@ViewBag.StatusMessage</p>
+    @Html.Partial("_ChangeAccountDetail")
+    @Html.Partial("_ChangePasswordPartial", new mvcBlog.Models.LocalPasswordModel())
